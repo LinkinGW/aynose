@@ -7,9 +7,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	var direccion = Input.get_vector("ui_left","ui_right","ui_up","ui_down") 
 	var mouse_position = get_global_mouse_position()
-	var shoot = direccion - global_position
-	var angle = shoot.angle()
+	var direction = mouse_position - global_position
+	var angle = direction.angle()
 	rotation = angle
