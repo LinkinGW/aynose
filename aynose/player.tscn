@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ycepq"]
 [ext_resource type="Texture2D" uid="uid://bo7vq2vqacr7n" path="res://assets/player/magito explosivo.png" id="2_w8rlj"]
-[ext_resource type="Script" path="res://hand.gd" id="3_bgnbd"]
+[ext_resource type="Script" path="res://scripts/hand.gd" id="3_bgnbd"]
 [ext_resource type="Texture2D" uid="uid://dikm30jmoqtg4" path="res://assets/weapons/staffs/vara.png" id="3_uid5t"]
 [ext_resource type="Texture2D" uid="uid://ckjofvk1rgff5" path="res://assets/player/hand.png" id="4_ufyy3"]
 
@@ -103,24 +103,26 @@ _data = {
 scale = Vector2(0.1, 0.1)
 script = ExtResource("1_ycepq")
 
-[node name="Node2D" type="Node2D" parent="."]
-scale = Vector2(1, 1)
+[node name="hand" type="Node2D" parent="."]
+position = Vector2(3.8147e-06, 0)
 script = ExtResource("3_bgnbd")
 
-[node name="wand" type="Sprite2D" parent="Node2D"]
-position = Vector2(80, -1.04904e-05)
-rotation = 0.785398
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("3_uid5t")
-offset = Vector2(1.6815, -19.2825)
+[node name="area" type="Node2D" parent="hand"]
+position = Vector2(70, -3.38813e-21)
 
-[node name="hand" type="Sprite2D" parent="Node2D"]
-visible = false
-position = Vector2(49.2446, -5.44218)
+[node name="hand" type="Sprite2D" parent="hand/area"]
+position = Vector2(9.53674e-06, 5.68434e-14)
 rotation = 0.785398
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("4_ufyy3")
 offset = Vector2(-2.67923, 5.5234)
+
+[node name="wand" type="Sprite2D" parent="hand/area"]
+position = Vector2(10, 4.47034e-07)
+rotation = 0.785398
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_uid5t")
+offset = Vector2(1.6815, -19.2825)
 
 [node name="player" type="Sprite2D" parent="."]
 position = Vector2(1, 1)
@@ -128,6 +130,7 @@ texture = ExtResource("2_w8rlj")
 offset = Vector2(15, -68)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.52588e-05, -7.62939e-06)
 shape = SubResource("CircleShape2D_yt8td")
 
 [node name="Animaciones" type="AnimationPlayer" parent="."]
@@ -136,4 +139,5 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(7, 6)
+position = Vector2(-7.62939e-06, -9.53674e-07)
+zoom = Vector2(6, 5)
