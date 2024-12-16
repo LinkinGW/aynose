@@ -6,8 +6,9 @@
 [node name="mundo1" type="Node2D"]
 
 [node name="worldgenerator" parent="." instance=ExtResource("1_y8qt5")]
-scale = Vector2(0.09, 0.09)
+position = Vector2(0, -3)
+scale = Vector2(0.08, 0.08)
 
 [node name="player" parent="." instance=ExtResource("2_ahsaj")]
-z_index = 3
-scale = Vector2(0.2, 0.2)
+position = Vector2(68, 69)
+scale = Vector2(0.008, 0.008)

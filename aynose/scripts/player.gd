@@ -5,6 +5,8 @@ const SPEED = 50.0
 var fireball_scene = preload("res://fireball.tscn")
 var current_fireball = null
 
+
+
 func _input(event):
 	if event is InputEventMouseButton:
 		if Input.is_action_just_pressed("left_click"):
@@ -15,13 +17,19 @@ func _input(event):
 
 func prepare_fireball():
 	# Instanciar la bola de fuego
-	current_fireball = fireball_scene.instantiate()
-	# Posicionar la bola de fuego en la mano
-	current_fireball.position = $hand/area/wand.position
+	var fireball = fireball_scene.instantiate()
+	
+	# Obtener la posición global de la mano
+	var hand_global_position = $hand.global_position
+	
+	# Posicionar la bola de fuego en la posición de la mano
+	fireball.position = hand_global_position
+	
 	# Establecer la dirección de la bola de fuego
-	current_fireball.rotation = $hand.rotation
-	# Añadir la bola de fuego a la escena
-	get_tree().current_scene.add_child(current_fireball)
+	fireball.rotation = $hand.rotation
+	
+	# Añadir la bola de fuego a la escena actual
+	get_tree().current_scene.add_child(fireball)
 
 func release_fireball():
 	if current_fireball:
@@ -36,4 +44,5 @@ func _physics_process(delta):
 		$Animaciones.play("movimiento")
 	velocity = direccion * SPEED
 	move_and_slide()
+	$Camera2D.zoom = Vector2(1 / scale.x, 1 / scale.y)
 	
