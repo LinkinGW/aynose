@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://054tlhaebwu5"]
+
+[ext_resource type="Script" path="res://scripts/skeleton_spawner.gd" id="1_tjmxe"]
+
+[node name="SkeletonSpawner" type="Node2D"]
+position = Vector2(166, 109)
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_tjmxe")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(64, 140)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(286, 220)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(284, 39)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

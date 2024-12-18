@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxs3talh0j4l1"]
+
+[ext_resource type="PackedScene" uid="uid://b3okmj3wbh8hr" path="res://escenas/mapa/world1.tscn" id="1_6qk3j"]
+[ext_resource type="PackedScene" uid="uid://ckm70ih31nv7o" path="res://escenas/jugador/player.tscn" id="2_unads"]
+[ext_resource type="PackedScene" uid="uid://054tlhaebwu5" path="res://escenas/spawners/skeleton_spawner.tscn" id="3_mg686"]
+
+[node name="Main" type="Node"]
+
+[node name="Node2D" parent="." instance=ExtResource("1_6qk3j")]
+position = Vector2(10694, -13970)
+scale = Vector2(10, 10)
+
+[node name="player" parent="." instance=ExtResource("2_unads")]
+position = Vector2(824, 312)
+
+[node name="SkeletonSpawner" parent="." instance=ExtResource("3_mg686")]
+position = Vector2(825, 289)
